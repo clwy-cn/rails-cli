@@ -2,15 +2,6 @@ ARG RUBY_VERSION=3.3.6
 
 FROM ruby:$RUBY_VERSION-slim
 
-# Set the sources of the aliyun in China
-RUN sed -i 's@deb.debian.org@mirrors.aliyun.com@g' /etc/apt/sources.list.d/debian.sources
-
-# Set the gem of ruby-china sources
-RUN gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
-
-# Configure bundle to use the ruby-china mirror
-RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.com
-
 # Install dependencies
 RUN apt-get update -qq && apt-get install -y build-essential libvips gnupg2 curl git libjemalloc2 postgresql-client libpq-dev default-mysql-client default-libmysqlclient-dev pkg-config
 
