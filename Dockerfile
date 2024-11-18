@@ -12,8 +12,7 @@ RUN gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org
 RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.com
 
 # Install dependencies
-RUN apt-get update -qq && apt-get install -y build-essential libvips gnupg2 curl git libjemalloc2  && \
-    postgresql-client libpq-dev default-mysql-client default-libmysqlclient-dev pkg-config
+RUN apt-get update -qq && apt-get install -y build-essential libvips gnupg2 curl git libjemalloc2 postgresql-client libpq-dev default-mysql-client default-libmysqlclient-dev pkg-config
 
 # Ensure node.js 22 is available for apt-get
 ARG NODE_MAJOR=22
