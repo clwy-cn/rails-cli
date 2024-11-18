@@ -1,7 +1,10 @@
 Forked from [Docked Rails CLI](https://github.com/rails/docked)
 
-- Ruby 3.3.6 + YJIT
+Contains:
+
+- Ruby 3.3.6 + YJIT 
 - Node 22.11.0
+- Ruby China mirror
 
 # Docked Rails CLI
 
