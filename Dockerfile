@@ -3,7 +3,8 @@ ARG RUBY_VERSION=3.3.6
 FROM ruby:$RUBY_VERSION-slim
 
 # Install dependencies
-RUN apt-get update -qq && apt-get install -y build-essential libvips gnupg2 curl git
+RUN apt-get update -qq && apt-get install -y build-essential libvips gnupg2 curl git libjemalloc2  && \
+    postgresql-client libpq-dev default-mysql-client default-libmysqlclient-dev pkg-config
 
 # Ensure node.js 22 is available for apt-get
 ARG NODE_MAJOR=22
