@@ -1,9 +1,18 @@
-ARG RUBY_VERSION=3.3.6
+ARG RUBY_VERSION=3.4.1
 
 FROM ruby:$RUBY_VERSION-slim
 
+# Set the sources of the aliyun in China
+RUN sed -i 's@deb.debian.org@mirrors.aliyun.com@g' /etc/apt/sources.list.d/debian.sources
+
+# Set the gem of ruby-china sources
+RUN gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
+
+# Configure bundle to use the ruby-china mirror
+RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.com
+
 # Install dependencies
-RUN apt-get update -qq && apt-get install -y build-essential libvips gnupg2 curl git libjemalloc2 postgresql-client libpq-dev default-mysql-client default-libmysqlclient-dev pkg-config
+RUN apt-get update -qq && apt-get install -y build-essential libvips gnupg2 curl git libjemalloc2 libclang-dev postgresql-client libpq-dev default-mysql-client default-libmysqlclient-dev pkg-config
 
 # Ensure node.js 22 is available for apt-get
 ARG NODE_MAJOR=22
@@ -13,8 +22,9 @@ RUN apt-get update && \
     echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
 
 # Install node and yarn
-RUN apt-get update -qq && apt-get install -y nodejs && npm install -g yarn && \
+RUN apt-get update -qq && apt-get install -y nodejs && \
     npm config set registry https://registry.npmmirror.com/ && \
+    npm install -g yarn && \
     yarn config set registry https://registry.npmmirror.com/
 
 # Mount $PWD to this workdir
