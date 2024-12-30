@@ -3,10 +3,10 @@
 安装 Rails 的环境，对于新手来说，非常棘手：
 
 - 在中国大陆，由于网络环境不够友好，导致安装 Ruby 和 RubyGems 非常困难。
-- Rails 项目开发中，经常需要安装一些由 C 语言或 Rust 等语言开发的 Gem 包。这些包在 Windows 中编译安装非常困难。
-- 对于一些老型号的 Mac 来说，已无法更新到最新的 macOS 系统，导致无法使用Homebrew 正确安装第三放依赖软件。例如 Active Storage 中所需要的图片分析依赖工具 vips，在 macOS Monterey 上已无法正确安装了。
+- Rails 项目开发中，经常需要安装一些由 `C` 或 `Rust` 等语言开发的 `Gem` 包。这些包在 `Windows` 中编译安装非常困难。
+- 对于一些老型号的 `Mac` 来说，已无法更新到最新的 `macOS` 系统，导致无法使用 `Homebrew` 正确安装第三放依赖软件。例如 [Active Storage](https://guides.rubyonrails.org/active_storage_overview.html) 中所需要的图片分析依赖工具 [vips](https://github.com/libvips/libvips)，在 `macOS Monterey` 上已无法正确安装了。
 
-为了让大家无论使用什么操作系统的电脑，都能非常顺利的开发 Ruby On Rails 应用，于是有了 Rails Docked 这个项目。其中，主要参考了 [Docked Rails CLI](https://github.com/rails/docked) 的相关配置。
+为了让大家无论使用什么操作系统的电脑，都能非常顺利的开发 `Ruby On Rails` 应用，于是有了 `Rails Docked` 这个项目。其中，主要参考了 [Docked Rails CLI](https://github.com/rails/docked) 的相关配置。
 
 打包好的镜像中，已包含了以下内容：
 
@@ -21,7 +21,7 @@
 
 ## 创建 Docker 卷
 
-创建一个名为 `ruby-bundle-cache` 的 Docker 卷，用于保存 Ruby 项目的依赖。
+创建一个名为 `ruby-bundle-cache` 的卷，用于保存 `Ruby` 项目的依赖。
 
 ```bash
 docker volume create ruby-bundle-cache
@@ -45,7 +45,7 @@ alias docked='docker run --rm -it -v ${PWD}:/rails -u $(id -u):$(id -g) -v ruby-
 docked rails new weblog -d postgresql
 ```
 
-> 提示：如果需要使用 MySQL，请将最后的 `postgresql` 参数改为 `mysql`。
+> 提示：如果需要使用 `MySQ`L，请将最后的 `postgresql` 参数改为 `mysql`。
 
 ### Windows 系统
 
@@ -57,7 +57,7 @@ docker run --rm -it -v ${PWD}:/rails -v ruby-bundle-cache:/bundle -p 3000:3000 r
 
 ## 使用 Docker Compose 配置容器
 
-建好后，在项目根目录，增加`docker-compose.yml`文件，并添加如下内容：
+建好后，用编辑器打开项目。并在项目根目录下，增加 `docker-compose.yml` 文件，添加以下内容：
 
 ```yml
 services:
@@ -100,7 +100,7 @@ volumes:
 
 ## 修改数据库连接
 
-修改`config/database.yml`文件，将数据库配置增加如下内容：
+修改`config/database.yml`文件，增加如下数据库配置信息：
 
 ```yml
 default: &default
