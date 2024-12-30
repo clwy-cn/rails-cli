@@ -17,11 +17,11 @@
 
 ## 安装 Docker
 
-首先需要先安装 [Docker](https://www.docker.com/products/docker-desktop/)，如果安装中出现了问题，请参考 [Docker安装教程](https://clwy.cn/chapters/fullstack-node-mysql)。
+首先需要先安装 [Docker](https://www.docker.com/products/docker-desktop/)，如果安装中出现了问题，请参考 [Docker 安装教程](https://clwy.cn/chapters/fullstack-node-mysql)。
 
 ## 创建 Docker 卷
 
-创建一个名为 `ruby-bundle-cache` 的卷，用于保存 `Ruby` 项目的依赖。
+创建一个名为 `ruby-bundle-cache` 的卷，用于保存 `Ruby` 项目的依赖包。
 
 ```bash
 docker volume create ruby-bundle-cache
@@ -138,7 +138,7 @@ bundle install
 rails db:create
 ```
 
-- 使用脚手架，生成增删改查功能（可选）
+- 使用脚手架，自动生成增删改查功能（可选）
 
 ```bash
 # 创建路由、模型和迁移文件
@@ -154,4 +154,4 @@ rails db:migrate
 rails s
 ```
 
-等待服务启动后，请访问 [http://localhost:3000/posts](http://localhost:3000/posts)
+等待服务顺利启动后，请访问 [http://localhost:3000/posts](http://localhost:3000/posts)
