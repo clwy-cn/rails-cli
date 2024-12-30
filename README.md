@@ -1,8 +1,8 @@
 # Rails Docked 
 
-安装 Rails 的环境，对于新手来说，非常棘手：
+安装 `Rails` 开发环境，对于新手来说，非常棘手：
 
-- 在中国大陆，由于网络环境不够友好，导致安装 Ruby 和 RubyGems 非常困难。
+- 在中国大陆，由于网络环境不够友好，导致安装 `Ruby` 和 `RubyGems` 非常困难。
 - Rails 项目开发中，经常需要安装一些由 `C` 或 `Rust` 等语言开发的 `Gem` 包。这些包在 `Windows` 中编译安装非常困难。
 - 对于一些老型号的 `Mac` 来说，已无法更新到最新的 `macOS` 系统，导致无法使用 `Homebrew` 正确安装第三放依赖软件。例如 [Active Storage](https://guides.rubyonrails.org/active_storage_overview.html) 中所需要的图片分析依赖工具 [vips](https://github.com/libvips/libvips)，在 `macOS Monterey` 上已无法正确安装了。
 
