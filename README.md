@@ -275,8 +275,6 @@ New-Item -Path $PROFILE -Type File -Force
 
 # 用你喜欢的编辑器打开该文件，添加以下内容
 Function docked { docker run --rm -it -v ${PWD}:/rails -v ruby-bundle-cache:/bundle -p 3000:3000 registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args }
-
-
 ```
 
 注意：在运行 `docked rails new xxx` 命令时，有可能碰到提示：
