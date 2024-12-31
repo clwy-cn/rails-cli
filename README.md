@@ -279,7 +279,7 @@ Function docked { docker run --rm -it -v ${PWD}:/rails -v ruby-bundle-cache:/bun
 
 ```
 
-注意：在运行 docked 命令时，有可能碰到提示：
+注意：在运行 `docked rails new xxx` 命令时，有可能碰到提示：
 
 ```bash
 无法加载文件 C:\Users\用户名\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1，因为在此系统上禁止运行脚本。
