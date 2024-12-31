@@ -29,6 +29,8 @@
 - Ruby Gem：Ruby China 镜像源
 - npm / Yarn：中国镜像源
 
+<img width="837" alt="image" src="https://github.com/user-attachments/assets/d53a9e95-88c5-4941-b862-269ff0f329cb" />
+
 ## 安装 Docker
 
 首先需要先安装 [Docker](https://www.docker.com/products/docker-desktop/)。如在安装过程出现了问题（常见于 Windows），请参考 [Docker 安装教程](https://clwy.cn/chapters/fullstack-node-mysql)。
@@ -172,13 +174,7 @@ rails db:migrate
 rails s
 ```
 
-等待服务顺利启动后，请访问：
-
-[http://localhost:3000/posts](http://localhost:3000)
-
-<img width="837" alt="image" src="https://github.com/user-attachments/assets/d53a9e95-88c5-4941-b862-269ff0f329cb" />
-
-[http://localhost:3000/posts](http://localhost:3000/posts)
+等待服务顺利启动后，请访问 [http://localhost:3000/posts](http://localhost:3000/posts)
 
 <img width="840" alt="image" src="https://github.com/user-attachments/assets/dbe0d056-27cd-4d53-bccc-3c2c944f3db7" />
 
@@ -335,6 +331,8 @@ Pre-configured mirrors:
 - Ruby Gem: Ruby China mirror
 - npm / Yarn: Chinese mirror
 
+<img width="837" alt="image" src="https://github.com/user-attachments/assets/d53a9e95-88c5-4941-b862-269ff0f329cb" />
+
 ## Installing Docker
 
 First, install [Docker](https://www.docker.com/products/docker-desktop/). If you encounter any issues during installation (common on Windows), please refer to the [Docker Installation Guide](https://clwy.cn/chapters/fullstack-node-mysql).
@@ -478,13 +476,7 @@ rails db:migrate
 rails s
 ```
 
-After the service starts successfully, visit:
-
-[http://localhost:3000/posts](http://localhost:3000)
-
-<img width="837" alt="image" src="https://github.com/user-attachments/assets/d53a9e95-88c5-4941-b862-269ff0f329cb" />
-
-[http://localhost:3000/posts](http://localhost:3000/posts)
+After the service starts successfully, visit [http://localhost:3000/posts](http://localhost:3000/posts)
 
 <img width="840" alt="image" src="https://github.com/user-attachments/assets/dbe0d056-27cd-4d53-bccc-3c2c944f3db7" />
 
