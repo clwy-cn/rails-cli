@@ -122,7 +122,7 @@ volumes:
 ## 修改数据库连接
 
 修改项目中的 `config/database.yml` 文件，增加如下数据库配置信息，这样才能连接到容器中的数据库：
-修改
+
 ```yml
 default: &default
   # ...
@@ -278,8 +278,6 @@ Function docked { docker run --rm -it -v ${PWD}:/rails -v ruby-bundle-cache:/bun
 
 本项目采用 [MIT 许可证](https://opensource.org/licenses/MIT)。
 
-Copyright (c) 2025 [刘东](https://clwy.cn/teachers/aaron)
-
 ---
 
 # Rails Docked
@@ -310,7 +308,7 @@ Pre-installed environment:
 
 Pre-configured mirrors:
 - apt command: Aliyun mirror
-- Ruby Gem / bundle: Ruby China mirror
+- Ruby Gem: Ruby China mirror
 - npm / Yarn: Chinese mirror
 
 ## Installing Docker
@@ -558,5 +556,3 @@ Function docked { docker run --rm -it -v ${PWD}:/rails -v ruby-bundle-cache:/bun
 ## License
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
-
-Copyright (c) 2025 [Liu Dong](https://clwy.cn/teachers/aaron)
