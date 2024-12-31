@@ -26,7 +26,7 @@
 
 预置镜像源包括：
 - apt 命令：阿里云镜像源
-- Ruby Gem / bundle：Ruby China 镜像源
+- Ruby Gem：Ruby China 镜像源
 - npm / Yarn：中国镜像源
 
 ## 安装 Docker
