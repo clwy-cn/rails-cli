@@ -172,7 +172,15 @@ rails db:migrate
 rails s
 ```
 
-等待服务顺利启动后，请访问 [http://localhost:3000/posts](http://localhost:3000/posts)
+等待服务顺利启动后，请访问：
+
+[http://localhost:3000/posts](http://localhost:3000)
+
+<img width="837" alt="image" src="https://github.com/user-attachments/assets/d53a9e95-88c5-4941-b862-269ff0f329cb" />
+
+[http://localhost:3000/posts](http://localhost:3000/posts)
+
+<img width="840" alt="image" src="https://github.com/user-attachments/assets/dbe0d056-27cd-4d53-bccc-3c2c944f3db7" />
 
 ## 常见问题
 
@@ -470,7 +478,15 @@ rails db:migrate
 rails s
 ```
 
-After the service starts successfully, visit [http://localhost:3000/posts](http://localhost:3000/posts)
+After the service starts successfully, visit:
+
+[http://localhost:3000/posts](http://localhost:3000)
+
+<img width="837" alt="image" src="https://github.com/user-attachments/assets/d53a9e95-88c5-4941-b862-269ff0f329cb" />
+
+[http://localhost:3000/posts](http://localhost:3000/posts)
+
+<img width="840" alt="image" src="https://github.com/user-attachments/assets/dbe0d056-27cd-4d53-bccc-3c2c944f3db7" />
 
 ## Common Questions
 
