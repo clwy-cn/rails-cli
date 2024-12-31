@@ -66,13 +66,7 @@ docked rails new weblog -d postgresql
 使用`PowerShell`，创建一个名为 `docked` 的别名：
 
 ```bash
-Function docked {
-    docker run --rm -it `
-        -v ${PWD}:/rails `
-        -v ruby-bundle-cache:/bundle `
-        -p 3000:3000 `
-        registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args 
-}
+Function docked { docker run --rm -it -v ${PWD}:/rails -v ruby-bundle-cache:/bundle -p 3000:3000 registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args }
 ```
 
 创建 `rails` 项目：
@@ -200,7 +194,18 @@ docked rails new weblog -d mysql
 ```yaml
 services:
   web:
-    # ...
+    image: "registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+      - redis
+    volumes:
+      - .:/rails
+      - ruby-bundle-cache:/bundle
+    tty: true
+    stdin_open: true
+    command: ["tail", "-f", "/dev/null"]
   mysql:
     image: mysql:8.3
     ports:
@@ -209,6 +214,15 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - ./data/mysql:/var/lib/mysql
+  redis:
+    image: redis:7.4
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data/redis:/data
+volumes:
+  ruby-bundle-cache:
+    external: true
 ```
 
 同时需要修改 `config/database.yml` 中的数据库配置：
@@ -216,9 +230,9 @@ services:
 ```yaml
 default: &default
   # ...
-  host: mysql
   username: root
   password:
+  host: mysql
 ```
 
 ### 2. 容器启动失败怎么办？
@@ -260,27 +274,23 @@ echo $PROFILE
 New-Item -Path $PROFILE -Type File -Force
 
 # 用你喜欢的编辑器打开该文件，添加以下内容
-Function docked {
-    docker run --rm -it `
-        -v ${PWD}:/rails `
-        -v ruby-bundle-cache:/bundle `
-        -p 3000:3000 `
-        registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args 
-}
+Function docked { docker run --rm -it -v ${PWD}:/rails -v ruby-bundle-cache:/bundle -p 3000:3000 registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args }
+
+
 ```
 
-## 维护说明
+注意：在运行 docked 命令时，有可能碰到提示：
 
-- 本项目定期更新，以跟进最新的 Rails 版本
-- 如遇问题请提交 Issue
-- 欢迎提交 PR 帮助改进项目
+```bash
+无法加载文件 C:\Users\用户名\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1，因为在此系统上禁止运行脚本。
+```
 
-## 贡献指南
+如果碰到这个错误，需要用`管理员身份`打开PowerShell，然后运行：
 
-1. Fork 本仓库
-2. 创建你的特性分支
-3. 提交你的改动
-4. 创建 Pull Request
+```bash
+Set-ExecutionPolicy RemoteSigned
+# 接着按 A 键继续
+```
 
 ## 许可证
 
@@ -357,13 +367,7 @@ docked rails new weblog -d postgresql
 Using `PowerShell`, create an alias named `docked`:
 
 ```bash
-Function docked {
-    docker run --rm -it `
-        -v ${PWD}:/rails `
-        -v ruby-bundle-cache:/bundle `
-        -p 3000:3000 `
-        registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args 
-}
+Function docked { docker run --rm -it -v ${PWD}:/rails -v ruby-bundle-cache:/bundle -p 3000:3000 registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args }
 ```
 
 Create a `rails` project:
@@ -490,7 +494,18 @@ Then modify the database configuration in `docker-compose.yml`:
 ```yaml
 services:
   web:
-    # ...
+    image: "registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+      - redis
+    volumes:
+      - .:/rails
+      - ruby-bundle-cache:/bundle
+    tty: true
+    stdin_open: true
+    command: ["tail", "-f", "/dev/null"]
   mysql:
     image: mysql:8.3
     ports:
@@ -499,6 +514,15 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - ./data/mysql:/var/lib/mysql
+  redis:
+    image: redis:7.4
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data/redis:/data
+volumes:
+  ruby-bundle-cache:
+    external: true
 ```
 
 Also modify the database configuration in `config/database.yml`:
@@ -506,9 +530,9 @@ Also modify the database configuration in `config/database.yml`:
 ```yaml
 default: &default
   # ...
-  host: mysql
   username: root
   password:
+  host: mysql
 ```
 
 ### 2. What to Do If Container Fails to Start?
@@ -551,27 +575,21 @@ echo $PROFILE
 New-Item -Path $PROFILE -Type File -Force
 
 # Open the file with your preferred editor and add
-Function docked {
-    docker run --rm -it `
-        -v ${PWD}:/rails `
-        -v ruby-bundle-cache:/bundle `
-        -p 3000:3000 `
-        registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args 
-}
+Function docked { docker run --rm -it -v ${PWD}:/rails -v ruby-bundle-cache:/bundle -p 3000:3000 registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args }
 ```
 
-## Maintenance Notes
+Note: When running the `docked rails new xxx` command, you might encounter a warning: 
 
-- This project is regularly updated to follow the latest Rails version
-- If you encounter issues, please submit an Issue
-- PR contributions are welcome to help improve the project
+```bash
+Unable to load file C:\Users\Username\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 because running scripts is disabled on this system.
+```
 
-## Contributing
+If you encounter this error, you need to open PowerShell as `Administrator`, and then run:
 
-1. Fork this repository
-2. Create your feature branch
-3. Commit your changes
-4. Create Pull Request
+```bash
+Set-ExecutionPolicy RemoteSigned
+# Then press the A key to continue
+```
 
 ## License
 
