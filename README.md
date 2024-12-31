@@ -50,7 +50,6 @@ docker volume create ruby-bundle-cache
 ```bash
 alias docked='docker run --rm -it \
  -v ${PWD}:/rails \
- -u $(id -u):$(id -g) \
  -v ruby-bundle-cache:/bundle \
  -p 3000:3000 \
  registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked'
@@ -67,7 +66,13 @@ docked rails new weblog -d postgresql
 使用`PowerShell`，创建一个名为 `docked` 的别名：
 
 ```bash
-Function docked { docker run --rm -it -v ${PWD}:/rails -v ruby-bundle-cache:/bundle -p 3000:3000 registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args }
+Function docked {
+    docker run --rm -it `
+        -v ${PWD}:/rails `
+        -v ruby-bundle-cache:/bundle `
+        -p 3000:3000 `
+        registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args 
+}
 ```
 
 创建 `rails` 项目：
@@ -175,8 +180,6 @@ rails s
 
 等待服务顺利启动后，请访问 [http://localhost:3000/posts](http://localhost:3000/posts)
 
-
-
 ## 常见问题
 
 ### 1. 如何更新
@@ -234,7 +237,6 @@ default: &default
 # 在配置文件中添加以下内容
 alias docked='docker run --rm -it \
  -v ${PWD}:/rails \
- -u $(id -u):$(id -g) \
  -v ruby-bundle-cache:/bundle \
  -p 3000:3000 \
  registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked'
@@ -258,7 +260,13 @@ echo $PROFILE
 New-Item -Path $PROFILE -Type File -Force
 
 # 用你喜欢的编辑器打开该文件，添加以下内容
-Function docked { docker run --rm -it -v ${PWD}:/rails -v ruby-bundle-cache:/bundle -p 3000:3000 registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args }
+Function docked {
+    docker run --rm -it `
+        -v ${PWD}:/rails `
+        -v ruby-bundle-cache:/bundle `
+        -p 3000:3000 `
+        registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args 
+}
 ```
 
 ## 维护说明
@@ -349,7 +357,13 @@ docked rails new weblog -d postgresql
 Using `PowerShell`, create an alias named `docked`:
 
 ```bash
-Function docked { docker run --rm -it -v ${PWD}:/rails -v ruby-bundle-cache:/bundle -p 3000:3000 registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args }
+Function docked {
+    docker run --rm -it `
+        -v ${PWD}:/rails `
+        -v ruby-bundle-cache:/bundle `
+        -p 3000:3000 `
+        registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args 
+}
 ```
 
 Create a `rails` project:
@@ -537,7 +551,13 @@ echo $PROFILE
 New-Item -Path $PROFILE -Type File -Force
 
 # Open the file with your preferred editor and add
-Function docked { docker run --rm -it -v ${PWD}:/rails -v ruby-bundle-cache:/bundle -p 3000:3000 registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args }
+Function docked {
+    docker run --rm -it `
+        -v ${PWD}:/rails `
+        -v ruby-bundle-cache:/bundle `
+        -p 3000:3000 `
+        registry.cn-hangzhou.aliyuncs.com/clwy/rails-docked $args 
+}
 ```
 
 ## Maintenance Notes
