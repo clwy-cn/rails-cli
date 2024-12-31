@@ -285,7 +285,7 @@ Function docked { docker run --rm -it -v ${PWD}:/rails -v ruby-bundle-cache:/bun
 无法加载文件 C:\Users\用户名\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1，因为在此系统上禁止运行脚本。
 ```
 
-如果碰到这个错误，需要用`管理员身份`打开PowerShell，然后运行：
+如果碰到这个错误，需要用`管理员身份`打开 `PowerShell`，然后运行：
 
 ```bash
 Set-ExecutionPolicy RemoteSigned
@@ -584,7 +584,7 @@ Note: When running the `docked rails new xxx` command, you might encounter a war
 Unable to load file C:\Users\Username\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 because running scripts is disabled on this system.
 ```
 
-If you encounter this error, you need to open PowerShell as `Administrator`, and then run:
+If you encounter this error, you need to open `PowerShell` as `Administrator`, and then run:
 
 ```bash
 Set-ExecutionPolicy RemoteSigned
